@@ -1,5 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
-import { Module } from '@module';
+
 
 class Greeting {
   message: string;
@@ -48,7 +48,7 @@ class Poodle extends Dog {
   }
 
   move() {
-    let moving = super.move();
+    const moving = super.move();
     console.log('poodle is walking');
   }
 }
@@ -90,7 +90,7 @@ class Person {
 class Worker extends Person {
   private department: string;
 
- protected constructor(name: string, department: string) {
+ constructor(name: string, department: string) {
     super(name);
     this.department = department;
   }
@@ -125,16 +125,15 @@ export class AppComponent implements OnInit {
     // this.extendDeviredClassTesting();
     // this.protectedTesting();
     // testing generics
-
-    console.log('random  number selected: ', this.randomIntElem(([22, 223, 434, 4343]) );
+    const rect2 = new Shapes.Retangle (20, 10);
+    console.log(rect2);
+    console.log('random  number selected: ', this.randomIntElem([22, 223, 434, 4343]));
     console.log('random string selected: ', this.randomStrElem(['red', 'blue']));
-    console.log('random position selected from randomElem: ', this.randomElem(position));
+    // console.log('random position selected from randomElem: ', this.randomElem(position));
     console.log('random color selected from randomElem:', );
 
-    const rect2 = new Shapes.Rectangle(20, 10);
-    console.log(rect2);
-   
   }
+
 
   classTesting() {
     const greeter = new Greeting('world');
@@ -193,8 +192,8 @@ export class AppComponent implements OnInit {
 
   }
 
-  randomElem(arra: any[]): any {
-    const randomIndex = Math.floor( Math.random() * arr.length );
+  randomElem(arr: any[]): any {
+    const randomIndex = Math.floor( Math.random() * arr.length);
     return arr[randomIndex];
   }
 }
