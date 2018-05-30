@@ -111,8 +111,14 @@ export class AppComponent implements OnInit {
     // this.classTesting();
     // this.animalClassTesting();
     // this.classCompatibilityTesting();
-    this.extendDeviredClassTesting();
-    this.protectedTesting();
+    // this.extendDeviredClassTesting();
+    // this.protectedTesting();
+    // testing generics
+
+    console.log('random  number selected: ', this.randomIntElem(([22, 223, 434, 4343]) );
+    console.log('random string selected: ', this.randomStrElem(['red', 'blue']));
+    console.log('random position selected from randomElem: ', this.randomElem(position));
+    console.log('random color selected from randomElem:', )
   }
   classTesting() {
     const greeter = new Greeting('world');
@@ -156,5 +162,23 @@ export class AppComponent implements OnInit {
 
     const person = new Person('patrick');
     console.log(person);
+  }
+
+  // generics
+
+  randomIntElem(arr: number[]): number {
+    const randomIndex = Math.floor( Math.random() * arr.length);
+    return arr[randomIndex];
+  }
+
+  randomStrElem(arr: string[]): string {
+    const randomIndex = Math.floor( Math.random() * arr.length);
+    return arr[randomIndex];
+
+  }
+
+  randomElem(arra: any[]): any {
+    const randomIndex = Math.floor( Math.random() * arr.length );
+    return arr[randomIndex];
   }
 }
