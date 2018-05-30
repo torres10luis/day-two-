@@ -89,7 +89,7 @@ class Person {
 class Worker extends Person {
   private department: string;
 
- protected constructor(name: string, department: string) {
+ constructor(name: string, department: string) {
     super(name);
     this.department = department;
   }
@@ -98,6 +98,29 @@ class Worker extends Person {
     return `My name is ${this.name} and i work in ${this.department} .`;
   }
 }
+// end classes
+// interface
+
+interface Stuff {
+  name: string;
+  age: number;
+  department?: string;
+
+  foo?(s: string): string;
+  foo?(n: number): number;
+
+
+}
+
+class StuffTwo implements Stuff {
+  name: string;
+  age: number;
+
+  foo(s: string) {
+    this.name = s;
+  }
+ }
+// end interface
 
 @Component({
   selector: 'app-root',
@@ -113,7 +136,11 @@ export class AppComponent implements OnInit {
     // this.classCompatibilityTesting();
     this.extendDeviredClassTesting();
     this.protectedTesting();
+    this.interfaceTesting({name: 'xyz', number: 25});
+
   }
+
+  // class testing
   classTesting() {
     const greeter = new Greeting('world');
     console.log(greeter.greet());
@@ -156,5 +183,17 @@ export class AppComponent implements OnInit {
 
     const person = new Person('patrick');
     console.log(person);
+  }
+
+  // interface testing
+
+  interfaceTesting(x: Stuff) {
+    console.log(`${x.name} is ${x.age} years old and works in ${x.department}.`);
+    // x.foo(5);
+
+    const stuff = new StuffTwo();
+    stuff.foo('test');
+    console.log(stuff.name);
+
   }
 }
