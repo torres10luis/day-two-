@@ -1,4 +1,5 @@
 import { Component, OnInit  } from '@angular/core';
+import { Module } from '@module';
 
 class Greeting {
   message: string;
@@ -99,6 +100,16 @@ class Worker extends Person {
   }
 }
 
+// modules
+module Shapes {
+  export class Retangle {
+
+  constructor(public height: number, public width: number) {}
+
+  }
+  export const rect1 = new Retangle(10, 4);
+}
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -118,8 +129,13 @@ export class AppComponent implements OnInit {
     console.log('random  number selected: ', this.randomIntElem(([22, 223, 434, 4343]) );
     console.log('random string selected: ', this.randomStrElem(['red', 'blue']));
     console.log('random position selected from randomElem: ', this.randomElem(position));
-    console.log('random color selected from randomElem:', )
+    console.log('random color selected from randomElem:', );
+
+    const rect2 = new Shapes.Rectangle(20, 10);
+    console.log(rect2);
+   
   }
+
   classTesting() {
     const greeter = new Greeting('world');
     console.log(greeter.greet());
